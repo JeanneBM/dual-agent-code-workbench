@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dual-agent-code-workbench"
+version = "0.1.0"
+description = "One local workspace for GPT and Claude to propose and review code changes."
+requires-python = ">=3.11"
+dependencies = ["httpx>=0.27,<0.29", "streamlit>=1.40,<2", "python-dotenv>=1,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+include = ["workbench*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
